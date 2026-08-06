@@ -1,0 +1,1 @@
+use databricks sql to get site_column using longitude and latitute of a table
