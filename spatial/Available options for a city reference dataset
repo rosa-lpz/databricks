@@ -1,0 +1,41 @@
+# Available options for a city reference dataset
+
+If you mean the **most commonly used/openly available options** for a city reference dataset with **city, country, latitude, and longitude**, I'd narrow it to these:
+
+| Rank | Dataset                       | Popularity | Coverage       | Best use                         |
+| ---- | ----------------------------- | ---------- | -------------- | -------------------------------- |
+| 🥇   | **GeoNames**                  | ⭐⭐⭐⭐⭐      | Very high      | General-purpose geographic data  |
+| 🥈   | **OpenStreetMap (OSM)**       | ⭐⭐⭐⭐⭐      | Extremely high | GIS / geospatial applications    |
+| 🥉   | **Natural Earth**             | ⭐⭐⭐⭐       | Moderate       | GIS, visualization, major cities |
+| 4    | **SimpleMaps World Cities**   | ⭐⭐⭐⭐       | ~7K cities     | Data analytics / easy CSV        |
+| 5    | **GNS (GEOnet Names Server)** | ⭐⭐⭐        | Very high      | Geographic names / gazetteer     |
+| 6    | **WorldCities / cities.json** | ⭐⭐⭐        | 40K–178K       | Data science / ML projects       |
+
+### For a Databricks / ML project
+
+I'd specifically recommend:
+
+**1. GeoNames** — if you want comprehensive geographic coverage.
+
+**2. SimpleMaps** — if you want a clean, relatively small table that is easy to load into Databricks.
+
+**3. Natural Earth** — if your primary purpose is geospatial analysis and visualization.
+
+**4. OpenStreetMap** — if you need extremely detailed and frequently updated geographic information.
+
+For your particular use case of **assigning the nearest city to latitude/longitude points**, I'd probably use **GeoNames or SimpleMaps** rather than OSM. They give you a much cleaner city reference table for a nearest-city lookup.
+
+
+What I'd use in your Databricks project
+Given your original requirement:
+city name + country name + longitude + latitude
+
+I'd rank them:
+
+🥇 SimpleMaps → easiest and cleanest
+🥈 Natural Earth → excellent for geospatial applications
+🥉 worldcities (~40K) → good coverage and convenient structure
+4. cities.json (~178K) → much greater coverage
+5. OSM → maximum geographic detail, but significantly more work
+
+If you're using the table specifically to do nearest-city matching against millions of points in Databricks, I'd actually lean toward Natural Earth or a ~40K city dataset rather than 178K+ cities. You can get excellent city-level matching without making your spatial join unnecessarily expensive.
