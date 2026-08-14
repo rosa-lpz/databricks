@@ -16,7 +16,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
 ```
-### Example
+### Example 1
 ```SQL
 CREATE OR REPLACE TEMPORARY VIEW temp_high_sales AS
 SELECT 
@@ -30,6 +30,24 @@ GROUP BY
     customer_id
 HAVING 
     total_spent > 1000;
+
+```
+
+### Example 2
+```SQL
+-- Cell 1: Create the temp view once
+CREATE OR REPLACE TEMPORARY VIEW temp_regional_sales AS
+SELECT region, SUM(amount) AS total_sales
+FROM sales
+GROUP BY region;
+
+-- Cell 2: Query it later
+SELECT * FROM temp_regional_sales WHERE total_sales > 50000;
+
+-- Cell 3: Join it with another table later in your notebook
+SELECT r.region, r.total_sales, t.target_amount
+FROM temp_regional_sales r
+JOIN regional_targets t ON r.region = t.region;
 
 ```
 
