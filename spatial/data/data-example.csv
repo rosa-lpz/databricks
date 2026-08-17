@@ -1,0 +1,11 @@
+customer_id,name,email,age,country,purchase_amount
+1,Alice Smith,alice@example.com,29,USA,125.50
+2,Bob Johnson,bob@example.com,35,Canada,89.99
+3,Carol Williams,carol@example.com,42,USA,210.75
+4,David Brown,david@example.com,31,Mexico,56.25
+5,Emma Davis,emma@example.com,27,UK,145.00
+6,Frank Miller,frank@example.com,39,Canada,75.40
+7,Grace Wilson,grace@example.com,45,USA,320.10
+8,Henry Moore,henry@example.com,33,Mexico,99.95
+9,Ivy Taylor,ivy@example.com,26,UK,180.00
+10,Jack Anderson,jack@example.com,51,USA,67.80
