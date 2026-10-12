@@ -16,3 +16,15 @@
 SELECT * FROM csv.`/Volumes/workspace/default/databricks/spatial/worldcities.csv` --OPTIONS (header=>"true", inferSchema=>"true")
 ```
 
+
+
+```sql
+%sql
+SELECT * FROM read_files(
+  '/Volumes/workspace/default/databricks/spatial/worldcities.csv',
+  format => 'csv',
+  header => true,
+  inferSchema => 'true'
+)
+```
+
